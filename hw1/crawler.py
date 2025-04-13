@@ -51,9 +51,16 @@ class WebCrawler:
             script.decompose()
         
         # 获取所有文本
-        text = soup.get_text()
-        return text
+        news = ''
+        title = soup.title.text.strip() if soup.title else ''
+        news += title
+        for x in soup.find_all('div'):
+            for y in x.find_all('p'):
+                news += y.text.strip()
+        
+        return news
     
+
     def crawl(self, seed_url, output_file, keep_english=True, keep_chinese=True):
         """从种子URL开始爬取网页"""
         queue = deque([seed_url])
@@ -66,6 +73,21 @@ class WebCrawler:
                 if url in self.visited_urls:
                     continue
                 
+                blacklist = ['video', 'pdf', 'download', 'doc', 'xls', 'ppt', 'mp3', 'mp4','swahili','italian' , 'kaz', 'thai', 'malay', 'greek','vietnamese','urdu','hindi','app','liuyan','login']
+                # 如果url里含有被黑名单字符串，跳过
+                if any(black in url for black in blacklist):
+                    print(f"跳过黑名单URL: {url}")
+                    continue
+                
+                if not keep_english:
+                    whitelist =['people']
+                else:
+                    whitelist = ['en.people']
+                # 如果url里不含有白名单字符串，跳过
+                if not any(white in url for white in whitelist):
+                    print(f"跳过非白名单URL: {url}")
+                    continue
+
                 try:
                     print(f"正在爬取: {url} 已爬取 {page_count}/{self.max_pages} ,已爬取文件大小: {os.path.getsize(output_file)} bytes")
                     response = requests.get(url, headers=self.headers, timeout=10)
@@ -91,7 +113,7 @@ class WebCrawler:
                         page_count += 1
                         
                         # 添加延迟，避免过快请求
-                        time.sleep(self.delay + random.random()/100)
+                        #time.sleep(self.delay + random.random()/500)
                 
                 except Exception as e:
                     print(f"爬取 {url} 时出错: {str(e)}")
