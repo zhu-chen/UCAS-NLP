@@ -9,24 +9,28 @@ class RNN(nn.Module):
         self.rnn = nn.RNN(embedding_dim, hidden_dim, batch_first=True)
         self.linear = nn.Linear(hidden_dim, vocab_size)
 
-        # 初始化权重
         self.init_weights()
 
     def init_weights(self):
         """初始化模型权重"""
+        # 嵌入层使用均匀分布初始化
         initrange = 0.5 / self.embeddings.embedding_dim
         self.embeddings.weight.data.uniform_(-initrange, initrange)
-        self.rnn.weight_ih_l0.data.uniform_(-0, 0)
-        self.rnn.weight_hh_l0.data.uniform_(-0, 0)
+        
+        # RNN 权重使用 Kaiming 初始化
+        nn.init.kaiming_normal_(self.rnn.weight_ih_l0, nonlinearity='tanh')
+        nn.init.orthogonal_(self.rnn.weight_hh_l0)  # 对于循环连接权重，使用正交初始化
         self.rnn.bias_ih_l0.data.zero_()
         self.rnn.bias_hh_l0.data.zero_()
-        self.linear.weight.data.uniform_(-0, 0)
+        
+        # 线性层使用 Kaiming 初始化
+        nn.init.kaiming_normal_(self.linear.weight, nonlinearity='relu')
         self.linear.bias.data.zero_()
 
     def forward(self, input):
         """前向传播"""
-        embeds = self.embeddings(input).unsqueeze(1)  # 添加时间维度
-        rnn_out, _ = self.rnn(embeds)  # RNN输出
+        embeds = self.embeddings(input)  
+        rnn_out, _ = self.rnn(embeds)    
         out = self.linear(rnn_out[:, -1, :])  # 取最后一个时间步的输出
-        log_probs = torch.log_softmax(out, dim=1)
+        log_probs = F.log_softmax(out, dim=1)
         return log_probs

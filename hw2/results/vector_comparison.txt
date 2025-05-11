@@ -1,0 +1,100 @@
+
+Word: 案件
+  FNN vs RNN: 0.0931
+  FNN vs LSTM: 0.2210
+  RNN vs LSTM: -0.0020
+
+Word: 加强
+  FNN vs RNN: 0.2933
+  FNN vs LSTM: 0.0340
+  RNN vs LSTM: 0.6218
+
+Word: 以
+  FNN vs RNN: 0.2938
+  FNN vs LSTM: 0.2773
+  RNN vs LSTM: 0.4661
+
+Word: 领导人
+  FNN vs RNN: -0.0970
+  FNN vs LSTM: -0.0482
+  RNN vs LSTM: 0.6083
+
+Word: 实行
+  FNN vs RNN: 0.6027
+  FNN vs LSTM: 0.1326
+  RNN vs LSTM: 0.2548
+
+Word: 事业
+  FNN vs RNN: 0.0564
+  FNN vs LSTM: 0.1056
+  RNN vs LSTM: 0.0846
+
+Word: 坚持
+  FNN vs RNN: -0.1621
+  FNN vs LSTM: 0.2209
+  RNN vs LSTM: -0.1845
+
+Word: 工程
+  FNN vs RNN: 0.2472
+  FNN vs LSTM: 0.2055
+  RNN vs LSTM: -0.0441
+
+Word: 正式
+  FNN vs RNN: 0.4571
+  FNN vs LSTM: -0.5779
+  RNN vs LSTM: -0.1526
+
+Word: 国际
+  FNN vs RNN: -0.1476
+  FNN vs LSTM: 0.4825
+  RNN vs LSTM: -0.4289
+
+Word: 林
+  FNN vs RNN: 0.2978
+  FNN vs LSTM: -0.5747
+  RNN vs LSTM: 0.3249
+
+Word: 谈判
+  FNN vs RNN: 0.1612
+  FNN vs LSTM: 0.0918
+  RNN vs LSTM: 0.7072
+
+Word: 汇率
+  FNN vs RNN: -0.3235
+  FNN vs LSTM: 0.0659
+  RNN vs LSTM: -0.0206
+
+Word: 鹏
+  FNN vs RNN: 0.2254
+  FNN vs LSTM: 0.2354
+  RNN vs LSTM: -0.0676
+
+Word: 名
+  FNN vs RNN: -0.2873
+  FNN vs LSTM: 0.1874
+  RNN vs LSTM: -0.2318
+
+Word: 吨
+  FNN vs RNN: -0.4040
+  FNN vs LSTM: -0.3194
+  RNN vs LSTM: 0.3559
+
+Word: 会见
+  FNN vs RNN: -0.1709
+  FNN vs LSTM: 0.3295
+  RNN vs LSTM: -0.0736
+
+Word: 都
+  FNN vs RNN: -0.3598
+  FNN vs LSTM: 0.7128
+  RNN vs LSTM: -0.5061
+
+Word: 从
+  FNN vs RNN: 0.8301
+  FNN vs LSTM: -0.1280
+  RNN vs LSTM: -0.3806
+
+Word: 提高
+  FNN vs RNN: 0.2553
+  FNN vs LSTM: -0.1274
+  RNN vs LSTM: 0.4099

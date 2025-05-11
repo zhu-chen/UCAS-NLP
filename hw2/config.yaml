@@ -1,0 +1,17 @@
+# 数据和输出路径
+data_path: "data/ChineseCorpus199801.txt"  # 相对于脚本目录的路径
+output_dir: "results"                      # 结果输出目录
+
+# 词表和嵌入设置
+vocab_size: 1000      # 词表大小
+embedding_dim: 10     # 词嵌入维度
+
+# 模型参数
+hidden_dim: 200        # 隐藏层维度
+context_size: 2       # 上下文窗口大小
+
+# 训练参数
+batch_size: 64        # 批处理大小
+epochs: 15             # 训练轮数
+learning_rate: 0.002  # 学习率
+random_seed: 42       # 随机种子

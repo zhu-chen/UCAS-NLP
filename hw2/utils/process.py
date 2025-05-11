@@ -21,7 +21,7 @@ def count_words(filename):
                 if '/' in part:
                     word, pos = part.rsplit('/', 1)  # 从右边分割，处理词中可能包含/的情况
                     # 忽略标点符号(w)和虚词(u)等
-                    if pos not in ['w', 'u']:
+                    if pos not in ['w', 'u','m']:
                         word_counter[word] += 1
     return word_counter
     
