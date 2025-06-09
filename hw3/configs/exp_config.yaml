@@ -1,0 +1,54 @@
+# 实验配置文件
+
+# 原始语料库路径
+corpus_file_path: '..\data\raw_corpus\ChineseCorpus199801.txt'
+# 处理后的数据输出路径
+sampled_output_path: '..\data\processed_data\sampled_data.json'
+
+# 数据配置
+num_samples: 50  
+num_samples_comparison: 10
+api_call_delay_seconds: 0.5  
+
+# 模型配置
+model_configs:
+  # 任务1：基础模型性能测试
+  task1_base_model:
+    api_provider: siliconflow
+    model_name: deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+    param_size_desc: 8B
+    prompt_key: detailed_instruction
+  
+  # 任务2：不同参数量模型比较
+  task2_models_param_comparison:
+    - id: deepseek_8b
+      api_provider: siliconflow
+      model_name: deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+      param_size_desc: 8B
+      prompt_key: detailed_instruction
+    
+    - id: deepseek_32B
+      api_provider: siliconflow
+      model_name: deepseek-ai/DeepSeek-R1-Distill-Qwen-32B
+      param_size_desc: 32B
+      prompt_key: detailed_instruction
+
+    - id: deepseek_671B
+      api_provider: siliconflow
+      model_name: deepseek-ai/DeepSeek-R1
+      param_size_desc: 671B
+      prompt_key: detailed_instruction
+      
+    
+  
+  # 任务2：不同prompt比较（使用同一个模型）
+  task2_prompts_comparison_model:
+    api_provider: siliconflow
+    model_name: deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+    param_size_desc: 8B
+
+# prompt配置
+prompts_to_compare:
+  - base_zero_shot
+  - detailed_instruction  
+  - few_shot_example

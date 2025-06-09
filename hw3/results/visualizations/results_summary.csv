@@ -1,0 +1,8 @@
+﻿实验ID,模型,Prompt类型,参数量,Precision,Recall,F1-Score,成功样本数,总样本数
+task1_base_performance,deepseek-ai/DeepSeek-R1-0528-Qwen3-8B,detailed_instruction,8B,0.44580813822183646,0.3267919814578815,0.3646148253508514,45,45
+model_comparison_deepseek_8b,deepseek-ai/DeepSeek-R1-0528-Qwen3-8B,detailed_instruction,8B,0.5891190476190477,0.4897484759644469,0.5322189603711343,10,10
+model_comparison_deepseek_32B,deepseek-ai/DeepSeek-R1-Distill-Qwen-32B,detailed_instruction,32B,0.6707142857142857,0.561227721159663,0.6006546208817244,10,10
+model_comparison_deepseek_671B,deepseek-ai/DeepSeek-R1,detailed_instruction,671B,0.019090909090909092,0.0033771929824561405,0.005600000000000001,10,10
+prompt_comparison_base_zero_shot,deepseek-ai/DeepSeek-R1-0528-Qwen3-8B,base_zero_shot,8B,0.04548611111111111,0.060833333333333336,0.04722222222222222,10,10
+prompt_comparison_detailed_instruction,deepseek-ai/DeepSeek-R1-0528-Qwen3-8B,detailed_instruction,8B,0.6251907539261727,0.5271496657204462,0.5658044163987792,10,10
+prompt_comparison_few_shot_example,deepseek-ai/DeepSeek-R1-0528-Qwen3-8B,few_shot_example,8B,0.7306216931216931,0.7307701226984349,0.715847047341092,10,10

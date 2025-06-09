@@ -17,7 +17,7 @@ def generate_project_structure(path, indent=0):
             print("│   " * indent + f"├── {item}")
 
 def main():
-    project_path = "./hw2"  # 替换为你的项目路径
+    project_path = "./hw3"  # 替换为你的项目路径
     print(f"{os.path.basename(project_path)}/")
     generate_project_structure(project_path)
 
